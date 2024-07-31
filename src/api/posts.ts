@@ -21,6 +21,6 @@ export const addPost = async (post: Omit<Post, 'id'>): Promise<Post> => {
       const newPost = { ...post, id: posts.length + 1 };
       posts.push(newPost);
       resolve(newPost);
-    }, 500);
-  });
+    }, 200);
+  })
 };

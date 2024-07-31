@@ -22,19 +22,22 @@ const AddPost: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto mt-8 p-6 border border-gray-300 rounded-lg shadow-md bg-white">
+      <h2 className="text-2xl font-bold mb-4">게시글 등록</h2>
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
+        placeholder="타이틀"
+        className="w-full p-2 mb-4 border border-gray-300 rounded-md text-lg"
       />
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Content"
+        placeholder="내용"
+        className="w-full p-2 mb-4 border border-gray-300 rounded-md text-lg resize-vertical"
       />
-      <button type="submit">Add Post</button>
+      <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">추가</button>
     </form>
   );
 };

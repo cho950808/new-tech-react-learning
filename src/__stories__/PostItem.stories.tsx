@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import PostItem from '../components/PostItem';
-import { Post } from '../api/posts';
 
 const meta: Meta<typeof PostItem> = {
   title: 'Components/PostItem',
