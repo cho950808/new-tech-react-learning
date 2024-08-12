@@ -1,25 +1,10 @@
-import React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import Header from './components/Header';
-import PostList from './components/PostList';
-import AddPost from './components/AddPost';
+import AppProvider from './providers';
+import AppRouter from './routes';
 
-const queryClient = new QueryClient();
-
-const App: React.FC = () => {
+export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-grow container mx-auto p-4 flex flex-col items-center">
-            <AddPost />
-            <PostList />
-          </main>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </div>
-      </QueryClientProvider>
+    <AppProvider>
+      <AppRouter />
+    </AppProvider>
   );
-};
-
-export default App;
+}
