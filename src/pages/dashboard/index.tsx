@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { useSpring, animated } from '@react-spring/web';
 import PageHead from '@/components/shared/page-head.jsx';
 import {
   Card,
@@ -12,145 +14,134 @@ import {
   TabsList,
   TabsTrigger
 } from '@/components/ui/tabs.js';
-import RecentSales from './components/recent-sales.js';
+import RecentSales from './components/recent-sales';
+import { cardsData, CardData } from '@/constants/cardsData';
+
+
+interface Sale {
+  name: string;
+  email: string;
+  amount: number;
+  avatarSrc: string;
+  avatarFallback: string;
+}
+
+
+const DashboardCard = ({ title, value }: { title: string; value: number; }) => {
+  const props = useSpring({ number: value, from: { number: 0 }, config: { tension: 170, friction: 26 } });
+
+  return (
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <animated.div className="text-2xl font-bold">
+          {props.number.to((n) => n.toFixed(2))}
+        </animated.div>
+      </CardContent>
+    </Card>
+  );
+};
+
 
 export default function DashboardPage() {
+  const [revenue, setRevenue] = useState<number>(45231.89);
+  const [subscriptions, setSubscriptions] = useState<number>(2350);
+  const [sales, setSales] = useState<number>(12234);
+  const [activeNow, setActiveNow] = useState<number>(573);
+  const [recentSales, setRecentSales] = useState<Sale[]>([
+    {
+      name: '김민수',
+      email: 'minsu.kim@email.com',
+      amount: 1999,
+      avatarSrc: 'https://randomuser.me/api/portraits/men/1.jpg',
+      avatarFallback: 'KM'
+    },
+    {
+      name: '이서준',
+      email: 'seojoon.lee@email.com',
+      amount: 39,
+      avatarSrc: 'https://randomuser.me/api/portraits/men/2.jpg',
+      avatarFallback: 'LS'
+    },
+    {
+      name: '박지민',
+      email: 'jimin.park@email.com',
+      amount: 299,
+      avatarSrc: 'https://randomuser.me/api/portraits/women/3.jpg',
+      avatarFallback: 'PJ'
+    },
+    {
+      name: '최유진',
+      email: 'yujin.choi@email.com',
+      amount: 99,
+      avatarSrc: 'https://randomuser.me/api/portraits/women/4.jpg',
+      avatarFallback: 'CY'
+    },
+    {
+      name: '한지훈',
+      email: 'jihun.han@email.com',
+      amount: 39,
+      avatarSrc: 'https://randomuser.me/api/portraits/men/5.jpg',
+      avatarFallback: 'HJ'
+    }
+  ]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // 모의 데이터 업데이트
+      setRevenue(prev => prev + Math.random() * 1000);
+      setSubscriptions(prev => prev + Math.floor(Math.random() * 100));
+      setSales(prev => prev + Math.floor(Math.random() * 500));
+      setActiveNow(prev => prev + Math.floor(Math.random() * 50));
+      setRecentSales(prev => prev.map(sale => ({ ...sale, amount: sale.amount + Math.floor(Math.random() * 10) })));
+    }, 5000); // 5초마다 업데이트
+
+    return () => clearInterval(interval);
+  }, []);
+
+  
+  const cardItems = cardsData(revenue, subscriptions, sales, activeNow);
+
   return (
     <>
-      <PageHead title="Dashboard | App" />
+      <PageHead title="대시보드 | 앱" />
       <div className="max-h-screen flex-1 space-y-4 overflow-y-auto p-4 pt-6 md:p-8">
         <div className="flex items-center justify-between space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">
-            Dashboard
-          </h2>
+          <h2 className="text-3xl font-bold tracking-tight">대시보드</h2>
         </div>
         <Tabs defaultValue="overview" className="space-y-4">
           <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="analytics" disabled>
-              Analytics
-            </TabsTrigger>
+            <TabsTrigger value="overview">개요</TabsTrigger>
+            <TabsTrigger value="analytics" disabled>분석</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
-                    Total Revenue
-                  </CardTitle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                  </svg>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">$45,231.89</div>
-                  <p className="text-xs text-muted-foreground">
-                    +20.1% from last month
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
-                    Subscriptions
-                  </CardTitle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">+2350</div>
-                  <p className="text-xs text-muted-foreground">
-                    +180.1% from last month
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Sales</CardTitle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <rect width="20" height="14" x="2" y="5" rx="2" />
-                    <path d="M2 10h20" />
-                  </svg>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">+12,234</div>
-                  <p className="text-xs text-muted-foreground">
-                    +19% from last month
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
-                    Active Now
-                  </CardTitle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                  </svg>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">+573</div>
-                  <p className="text-xs text-muted-foreground">
-                    +201 since last hour
-                  </p>
-                </CardContent>
-              </Card>
+              {cardItems.map((card, index) => (
+                <DashboardCard
+                  key={index}
+                  title={card.title}
+                  value={card.value}
+                />
+              ))}
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-4">
                 <CardHeader>
-                  <CardTitle>Overview</CardTitle>
+                  <CardTitle>개요</CardTitle>
                 </CardHeader>
-                <CardContent className="pl-2">{/* <Overview /> */}</CardContent>
+                <CardContent className="pl-2">
+                  {/* <Overview /> */}
+                </CardContent>
               </Card>
               <Card className="col-span-4 md:col-span-3">
                 <CardHeader>
-                  <CardTitle>Recent Sales</CardTitle>
-                  <CardDescription>
-                    You made 265 sales this month.
-                  </CardDescription>
+                  <CardTitle>최근 판매</CardTitle>
+                  <CardDescription>이번 달에 265개의 판매를 했습니다.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <RecentSales />
+                  <RecentSales data={recentSales} />
                 </CardContent>
               </Card>
             </div>

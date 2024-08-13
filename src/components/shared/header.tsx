@@ -1,10 +1,10 @@
 import { navItems } from '@/constants/data';
 import { usePathname } from '@/routes/hooks';
-import Heading from './heading';
-import UserNav from './user-nav';
 import { ModeToggle } from './theme-toggle';
 
-// Custom hook to find the matched path
+import Heading from './heading';
+import UserNav from './user-nav';
+
 const useMatchedPath = (pathname: string) => {
   const matchedPath =
     navItems.find((item) => item.href === pathname) ||
