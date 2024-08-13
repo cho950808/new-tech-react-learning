@@ -1,7 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import AddPost from '../components/AddPost';
 
 const queryClient = new QueryClient();
 
