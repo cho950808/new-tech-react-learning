@@ -18,6 +18,11 @@ export const navItems: NavItem[] = [
     href: '/login',
     icon: 'login',
     label: '로그인'
+  },
+  {
+    title: '무한스크롤',
+    href: '/infinity-scroll',
+    label: '무한스크롤'
   }
 ];
 
