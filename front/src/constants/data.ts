@@ -25,12 +25,12 @@ export const navItems: NavItem[] = [
     icon: 'ArrowLeftRight',
     label: '슬라이더'
   },
-  // {
-  //   title: '로그인',
-  //   href: '/login',
-  //   icon: 'login',
-  //   label: '로그인'
-  // },
+  {
+    title: '캘린더',
+    href: '/calendar',
+    icon: 'Calendar',
+    label: '캘린더'
+  },
 ];
 
 export const users = [
@@ -116,33 +116,6 @@ export const users = [
   }
 ];
 
-export const dashboardCard = [
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Students',
-    color: 'bg-[#EC4D61] bg-opacity-40'
-  },
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Teachers',
-    color: 'bg-[#FFEB95] bg-opacity-100'
-  },
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Parents',
-    color: 'bg-[#84BD47] bg-opacity-30'
-  },
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Schools',
-    color: 'bg-[#D289FF] bg-opacity-30'
-  }
-];
-
 export type Employee = {
   id: number;
   first_name: string;
@@ -150,14 +123,14 @@ export type Employee = {
   email: string;
   phone: string;
   gender: string;
-  date_of_birth: string; // Consider using a proper date type if possible
+  date_of_birth: string;
   street: string;
   city: string;
   state: string;
   country: string;
   zipcode: string;
-  longitude?: number; // Optional field
-  latitude?: number; // Optional field
+  longitude?: number;
+  latitude?: number;
   job: string;
-  profile_picture?: string | null; // Profile picture can be a string (URL) or null (if no picture)
+  profile_picture?: string | null;
 };
