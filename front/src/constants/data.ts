@@ -2,28 +2,35 @@ import { NavItem } from '@/types';
 
 export const navItems: NavItem[] = [
   {
-    title: '대시보드',
+    title: '차트',
     href: '/',
-    icon: 'dashboard',
-    label: '대시보드'
+    icon: 'ChartArea',
+    label: '차트'
   },
   {
-    title: '사용자계정',
+    title: '게시판',
     href: '/student',
-    icon: 'user',
-    label: '사용자계정'
-  },
-  {
-    title: '로그인',
-    href: '/login',
-    icon: 'login',
-    label: '로그인'
+    icon: 'BookText',
+    label: '게시판'
   },
   {
     title: '무한스크롤',
     href: '/infinity-scroll',
+    icon: 'SquareArrowDown',
     label: '무한스크롤'
-  }
+  },
+  {
+    title: '슬라이더',
+    href: '/slider',
+    icon: 'ArrowLeftRight',
+    label: '슬라이더'
+  },
+  // {
+  //   title: '로그인',
+  //   href: '/login',
+  //   icon: 'login',
+  //   label: '로그인'
+  // },
 ];
 
 export const users = [

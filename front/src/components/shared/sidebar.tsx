@@ -21,38 +21,43 @@ export default function Sidebar({ className }: SidebarProps) {
   };
   return (
     <nav
+      className={cn(
+        `relative z-10 hidden h-screen flex-none px-3 md:block`,
+        status && 'duration-500',
+        !isMinimized ? 'w-72' : 'w-[80px]',
+        className
+      )}
+    >
+      <div
         className={cn(
-          `relative z-10 hidden h-screen flex-none px-3 md:block`,
-          status && 'duration-500',
-          !isMinimized ? 'w-72' : 'w-[80px]',
-          className
+          'flex items-center px-10 py-3',
+          isMinimized ? 'justify-center ' : 'justify-between'
         )}
       >
-        <div
-          className={cn(
-            'flex items-center px-0 py-5 md:px-2',
-            isMinimized ? 'justify-center ' : 'justify-between'
-          )}
-        >
-          {
-            !isMinimized && <img src="/logo.png" alt="Logo" className="h-40 w-auto" />
-          } 
-          <ChevronsLeft
-            className={cn(
-              'size-8 cursor-pointer rounded-full border bg-background text-foreground',
-              isMinimized && 'rotate-180'
-            )}
-            onClick={handleToggle}
-            style={{ width: '32px', height: '32px' }}
-          />
-        </div>
-        <div className="space-y-4 py-4">
-          <div className="px-2 py-2">
-            <div className="mt-3 space-y-1">
-              <DashboardNav items={navItems} />
-            </div>
+        {
+          !isMinimized && <img src="/logo.png" alt="Logo" className="h-auto w-auto" />
+        } 
+      </div>
+      <div className="space-y-4 py-4">
+        <div className="px-2 py-2">
+          <div className="mt-3 space-y-1">
+            <DashboardNav items={navItems} />
           </div>
         </div>
-      </nav>
+      </div>
+      <div className="absolute inset-y-0 right-[-15px] flex items-center">
+        <ChevronsLeft
+          className={cn(
+            'cursor-pointer rounded-full border bg-background text-foreground',
+            isMinimized && 'rotate-180'
+          )}
+          onClick={handleToggle}
+          style={{
+            width: '32px',
+            height: '32px',
+          }}
+        />
+      </div>
+    </nav>
   );
 }
