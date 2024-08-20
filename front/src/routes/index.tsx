@@ -9,6 +9,7 @@ const StudentPage = lazy(() => import('@/pages/students'));
 const StudentDetailPage = lazy(() => import('@/pages/students/StudentDetailPage'));
 const InfinityScrollPage = lazy(() => import('@/pages/infinity-scroll'));
 const SliderPage = lazy(() => import('@/pages/slider'));
+const CalendarPage = lazy(() => import('@/pages/calendar'));
 
 export default function AppRouter() {
   const dashboardRoutes = [
@@ -37,6 +38,10 @@ export default function AppRouter() {
         {
           path: 'infinity-scroll',
           element: <InfinityScrollPage />
+        },
+        {
+          path: 'calendar',
+          element: <CalendarPage />
         },
         {
           path: 'slider',

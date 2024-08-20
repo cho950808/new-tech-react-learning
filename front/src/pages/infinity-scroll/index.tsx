@@ -1,7 +1,7 @@
 import PageHead from '@/components/shared/page-head';
 import InfiniteScroll from './components/InfiniteScroll';
 
-export default function DashboardPage() {
+export default function InfinityScrollPage() {
   return (
     <>
       <PageHead title="무한스크롤 | New Tech" />

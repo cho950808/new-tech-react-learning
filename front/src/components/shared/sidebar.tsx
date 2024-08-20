@@ -53,8 +53,9 @@ export default function Sidebar({ className }: SidebarProps) {
           )}
           onClick={handleToggle}
           style={{
-            width: '32px',
-            height: '32px',
+            width: '30px',
+            height: '30px',
+            padding: '3px',
           }}
         />
       </div>
