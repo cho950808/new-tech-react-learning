@@ -31,6 +31,12 @@ export const navItems: NavItem[] = [
     icon: 'Calendar',
     label: '캘린더'
   },
+  {
+    title: '채팅',
+    href: '/chatting',
+    icon: 'Chatting',
+    label: '채팅'
+  },
 ];
 
 export const users = [
