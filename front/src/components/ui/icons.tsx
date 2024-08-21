@@ -32,6 +32,7 @@ import {
   ArrowLeftRight,
   BookText,
   ChartArea,
+  MessageCircleMore,
   X
 } from 'lucide-react';
 
@@ -69,6 +70,7 @@ export const Icons = {
   ArrowLeftRight: ArrowLeftRight,
   BookText: BookText,
   ChartArea: ChartArea,
+  Chatting: MessageCircleMore,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
