@@ -1,5 +1,4 @@
 import NotFound from '@/pages/not-found';
-import FormPage from '@/pages/form';
 import { Suspense, lazy } from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';
 
@@ -9,6 +8,9 @@ const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const StudentPage = lazy(() => import('@/pages/students'));
 const StudentDetailPage = lazy(() => import('@/pages/students/StudentDetailPage'));
 const InfinityScrollPage = lazy(() => import('@/pages/infinity-scroll'));
+const SliderPage = lazy(() => import('@/pages/slider'));
+const CalendarPage = lazy(() => import('@/pages/calendar'));
+const ChattingPage = lazy(() => import('@/pages/chatting'));
 
 export default function AppRouter() {
   const dashboardRoutes = [
@@ -35,12 +37,20 @@ export default function AppRouter() {
           element: <StudentDetailPage />
         },
         {
-          path: 'form',
-          element: <FormPage />
-        },
-        {
           path: 'infinity-scroll',
           element: <InfinityScrollPage />
+        },
+        {
+          path: 'calendar',
+          element: <CalendarPage />
+        },
+        {
+          path: 'slider',
+          element: <SliderPage />
+        },
+        {
+          path: 'chatting',
+          element: <ChattingPage />
         }
       ]
     }

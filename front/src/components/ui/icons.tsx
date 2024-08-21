@@ -24,10 +24,15 @@ import {
   Settings,
   SunMedium,
   Trash,
-  Twitter,
   User,
   User2Icon,
-  UserX2Icon,
+  SquareArrowDown,
+  Calendar,
+  Images,
+  ArrowLeftRight,
+  BookText,
+  ChartArea,
+  MessageCircleMore,
   X
 } from 'lucide-react';
 
@@ -44,7 +49,6 @@ export const Icons = {
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   trash: Trash,
-  employee: UserX2Icon,
   post: FileText,
   page: File,
   media: Image,
@@ -60,6 +64,13 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  SquareArrowDown: SquareArrowDown,
+  Calendar: Calendar,
+  Images: Images,
+  ArrowLeftRight: ArrowLeftRight,
+  BookText: BookText,
+  ChartArea: ChartArea,
+  Chatting: MessageCircleMore,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
@@ -77,6 +88,5 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  twitter: Twitter,
   check: Check
 };

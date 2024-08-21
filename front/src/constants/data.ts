@@ -2,28 +2,41 @@ import { NavItem } from '@/types';
 
 export const navItems: NavItem[] = [
   {
-    title: '대시보드',
+    title: '차트',
     href: '/',
-    icon: 'dashboard',
-    label: '대시보드'
+    icon: 'ChartArea',
+    label: '차트'
   },
   {
-    title: '사용자계정',
+    title: '게시판',
     href: '/student',
-    icon: 'user',
-    label: '사용자계정'
-  },
-  {
-    title: '로그인',
-    href: '/login',
-    icon: 'login',
-    label: '로그인'
+    icon: 'BookText',
+    label: '게시판'
   },
   {
     title: '무한스크롤',
     href: '/infinity-scroll',
+    icon: 'SquareArrowDown',
     label: '무한스크롤'
-  }
+  },
+  {
+    title: '슬라이더',
+    href: '/slider',
+    icon: 'ArrowLeftRight',
+    label: '슬라이더'
+  },
+  {
+    title: '캘린더',
+    href: '/calendar',
+    icon: 'Calendar',
+    label: '캘린더'
+  },
+  {
+    title: '채팅',
+    href: '/chatting',
+    icon: 'Chatting',
+    label: '채팅'
+  },
 ];
 
 export const users = [
@@ -109,33 +122,6 @@ export const users = [
   }
 ];
 
-export const dashboardCard = [
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Students',
-    color: 'bg-[#EC4D61] bg-opacity-40'
-  },
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Teachers',
-    color: 'bg-[#FFEB95] bg-opacity-100'
-  },
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Parents',
-    color: 'bg-[#84BD47] bg-opacity-30'
-  },
-  {
-    date: 'Today',
-    total: 2000,
-    role: 'Schools',
-    color: 'bg-[#D289FF] bg-opacity-30'
-  }
-];
-
 export type Employee = {
   id: number;
   first_name: string;
@@ -143,14 +129,14 @@ export type Employee = {
   email: string;
   phone: string;
   gender: string;
-  date_of_birth: string; // Consider using a proper date type if possible
+  date_of_birth: string;
   street: string;
   city: string;
   state: string;
   country: string;
   zipcode: string;
-  longitude?: number; // Optional field
-  latitude?: number; // Optional field
+  longitude?: number;
+  latitude?: number;
   job: string;
-  profile_picture?: string | null; // Profile picture can be a string (URL) or null (if no picture)
+  profile_picture?: string | null;
 };
