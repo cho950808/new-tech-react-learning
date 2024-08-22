@@ -70,7 +70,23 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
-      }
+      },
+      extend: {
+        keyframes: {
+          slideInLeft: {
+            '0%': { transform: 'translateX(-100%)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+          },
+          slideInRight: {
+            '0%': { transform: 'translateX(100%)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+          },
+        },
+        animation: {
+          'slide-in-left': 'slideInLeft 0.3s ease-in-out',
+          'slide-in-right': 'slideInRight 0.3s ease-in-out',
+        },
+      },
     }
   },
   plugins: [require('tailwindcss-animate')]
