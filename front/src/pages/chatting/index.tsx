@@ -1,5 +1,5 @@
 import PageHead from '@/components/shared/page-head';
-import Chatting from './components/Chatting';
+import ChatContainer from './components/ChatContainer';
 
 export default function ChattingPage() {
   return (
@@ -9,7 +9,7 @@ export default function ChattingPage() {
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">채팅</h2>
         </div>
-        <Chatting />
+        <ChatContainer />
       </div>
     </>
   );

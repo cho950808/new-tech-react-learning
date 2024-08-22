@@ -11,6 +11,7 @@ const InfinityScrollPage = lazy(() => import('@/pages/infinity-scroll'));
 const SliderPage = lazy(() => import('@/pages/slider'));
 const CalendarPage = lazy(() => import('@/pages/calendar'));
 const ChattingPage = lazy(() => import('@/pages/chatting'));
+const StreamingPage = lazy(() => import('@/pages/streaming'));
 
 export default function AppRouter() {
   const dashboardRoutes = [
@@ -51,7 +52,11 @@ export default function AppRouter() {
         {
           path: 'chatting',
           element: <ChattingPage />
-        }
+        },
+        {
+          path: 'streaming',
+          element: <StreamingPage />
+        },
       ]
     }
   ];
