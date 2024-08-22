@@ -19,12 +19,12 @@ export const navItems: NavItem[] = [
     icon: 'SquareArrowDown',
     label: '무한스크롤'
   },
-  {
-    title: '슬라이더',
-    href: '/slider',
-    icon: 'ArrowLeftRight',
-    label: '슬라이더'
-  },
+  // {
+  //   title: '슬라이더',
+  //   href: '/slider',
+  //   icon: 'ArrowLeftRight',
+  //   label: '슬라이더'
+  // },
   {
     title: '캘린더',
     href: '/calendar',
@@ -36,6 +36,12 @@ export const navItems: NavItem[] = [
     href: '/chatting',
     icon: 'Chatting',
     label: '채팅'
+  },
+  {
+    title: '스트리밍',
+    href: '/streaming',
+    icon: 'Streaming',
+    label: '스트리밍'
   },
 ];
 
