@@ -3,27 +3,18 @@ import DashboardNav from '@/components/shared/dashboard-nav';
 import { navItems } from '@/constants/data';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { cn } from '@/lib/utils';
-import { ChevronsLeft } from 'lucide-react';
-import { useState } from 'react';
 
 type SidebarProps = {
   className?: string;
 };
 
 export default function Sidebar({ className }: SidebarProps) {
-  const { isMinimized, toggle } = useSidebar();
-  const [status, setStatus] = useState(false);
+  const { isMinimized } = useSidebar();
 
-  const handleToggle = () => {
-    setStatus(true);
-    toggle();
-    setTimeout(() => setStatus(false), 500);
-  };
   return (
     <nav
       className={cn(
         `relative z-10 hidden h-screen flex-none px-3 md:block`,
-        status && 'duration-500',
         !isMinimized ? 'w-72' : 'w-[80px]',
         className
       )}
@@ -44,20 +35,6 @@ export default function Sidebar({ className }: SidebarProps) {
             <DashboardNav items={navItems} />
           </div>
         </div>
-      </div>
-      <div className="absolute inset-y-0 right-[-15px] flex items-center">
-        <ChevronsLeft
-          className={cn(
-            'cursor-pointer rounded-full border bg-background text-foreground',
-            isMinimized && 'rotate-180'
-          )}
-          onClick={handleToggle}
-          style={{
-            width: '30px',
-            height: '30px',
-            padding: '3px',
-          }}
-        />
       </div>
     </nav>
   );

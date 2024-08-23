@@ -8,7 +8,6 @@ interface CalendarProps {
 const holidays = [
   { date: '2024-01-01', name: 'New Year\'s Day' },
   { date: '2024-12-25', name: 'Christmas Day' },
-  // Add more holidays here...
 ];
 
 const CalendarDay: React.FC<{

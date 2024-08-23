@@ -5,7 +5,7 @@ export const navItems: NavItem[] = [
     title: '차트',
     href: '/',
     icon: 'ChartArea',
-    label: '차트'
+    label: '차트',
   },
   {
     title: '게시판',
@@ -19,12 +19,6 @@ export const navItems: NavItem[] = [
     icon: 'SquareArrowDown',
     label: '무한스크롤'
   },
-  // {
-  //   title: '슬라이더',
-  //   href: '/slider',
-  //   icon: 'ArrowLeftRight',
-  //   label: '슬라이더'
-  // },
   {
     title: '캘린더',
     href: '/calendar',
@@ -47,7 +41,19 @@ export const navItems: NavItem[] = [
     title: '파일 업로드',
     href: '/file-upload',
     icon: 'FileUpload',
-    label: '파일 업로드'
+    label: '파일 업로드',
+    submenu: [
+      {
+        title: '갤러리',
+        href: '/file-upload/gallery',
+        label: '갤러리'
+      },
+      {
+        title: '대용량 파일 업로드',
+        href: '/file-upload/big-file',
+        label: '대용량 파일 업로드'
+      }
+    ]
   },
 ];
 
