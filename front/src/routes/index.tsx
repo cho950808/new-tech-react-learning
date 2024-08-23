@@ -12,6 +12,7 @@ const SliderPage = lazy(() => import('@/pages/slider'));
 const CalendarPage = lazy(() => import('@/pages/calendar'));
 const ChattingPage = lazy(() => import('@/pages/chatting'));
 const StreamingPage = lazy(() => import('@/pages/streaming'));
+const FileUploadPage = lazy(() => import('@/pages/file-upload'));
 
 export default function AppRouter() {
   const dashboardRoutes = [
@@ -56,6 +57,10 @@ export default function AppRouter() {
         {
           path: 'streaming',
           element: <StreamingPage />
+        },
+        {
+          path: 'file-upload',
+          element: <FileUploadPage />
         },
       ]
     }

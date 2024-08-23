@@ -34,6 +34,7 @@ import {
   ChartArea,
   MessageCircleMore,
   Airplay,
+  Upload,
   X
 } from 'lucide-react';
 
@@ -73,6 +74,7 @@ export const Icons = {
   ChartArea: ChartArea,
   Chatting: MessageCircleMore,
   Streaming: Airplay,
+  FileUpload: Upload,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
