@@ -8,34 +8,10 @@ export const navItems: NavItem[] = [
     label: '차트',
   },
   {
-    title: '게시판',
-    href: '/student',
-    icon: 'BookText',
-    label: '게시판'
-  },
-  {
-    title: '무한스크롤',
-    href: '/infinity-scroll',
-    icon: 'SquareArrowDown',
-    label: '무한스크롤'
-  },
-  {
     title: '캘린더',
     href: '/calendar',
     icon: 'Calendar',
     label: '캘린더'
-  },
-  {
-    title: '채팅',
-    href: '/chatting',
-    icon: 'Chatting',
-    label: '채팅'
-  },
-  {
-    title: '스트리밍',
-    href: '/streaming',
-    icon: 'Streaming',
-    label: '스트리밍'
   },
   {
     title: '파일 업로드',
@@ -54,6 +30,30 @@ export const navItems: NavItem[] = [
         label: '대용량 파일 업로드'
       }
     ]
+  },
+  {
+    title: '채팅',
+    href: '/chatting',
+    icon: 'Chatting',
+    label: '채팅'
+  },
+  {
+    title: '스트리밍',
+    href: '/streaming',
+    icon: 'Streaming',
+    label: '스트리밍'
+  },
+  {
+    title: '게시판',
+    href: '/student',
+    icon: 'BookText',
+    label: '게시판'
+  },
+  {
+    title: '무한스크롤',
+    href: '/infinity-scroll',
+    icon: 'SquareArrowDown',
+    label: '무한스크롤'
   },
 ];
 

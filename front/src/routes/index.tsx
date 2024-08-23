@@ -12,7 +12,7 @@ const SliderPage = lazy(() => import('@/pages/slider'));
 const CalendarPage = lazy(() => import('@/pages/calendar'));
 const ChattingPage = lazy(() => import('@/pages/chatting'));
 const StreamingPage = lazy(() => import('@/pages/streaming'));
-const GalleryPage = lazy(() => import('@/pages/file-upload/Gallery'));
+const GalleryPage = lazy(() => import('@/pages/file-upload/gallery'));
 const BigFileUploadPage = lazy(() => import('@/pages/file-upload/big-file'));
 
 export default function AppRouter() {
