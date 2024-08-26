@@ -8,6 +8,29 @@ export const navItems: NavItem[] = [
     label: '차트',
   },
   {
+    title: '게시판',
+    href: '/board',
+    icon: 'BookText',
+    label: '게시판',
+    submenu: [
+      {
+        title: '일반 게시판',
+        href: '/board/general-board',
+        label: '일반 게시판'
+      },
+      {
+        title: '파일 업로드 게시판',
+        href: '/board/file-upload-board',
+        label: '파일 업로드 게시판'
+      },
+      {
+        title: '캘린더 게시판',
+        href: '/board/calendar-board',
+        label: '캘린더 게시판'
+      },
+    ]
+  },
+  {
     title: '캘린더',
     href: '/calendar',
     icon: 'Calendar',
@@ -42,12 +65,6 @@ export const navItems: NavItem[] = [
     href: '/streaming',
     icon: 'Streaming',
     label: '스트리밍'
-  },
-  {
-    title: '게시판',
-    href: '/student',
-    icon: 'BookText',
-    label: '게시판'
   },
   {
     title: '무한스크롤',

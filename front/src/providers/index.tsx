@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { useRouter } from '@/routes/hooks';
+import { useRouter } from '@/hooks';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Suspense } from 'react';
@@ -13,7 +13,6 @@ export const queryClient = new QueryClient();
 
 const ErrorFallback = ({ error }: FallbackProps) => {
   const router = useRouter();
-  console.log('error', error);
   return (
     <div
       className="flex h-screen w-screen flex-col items-center  justify-center text-red-500"

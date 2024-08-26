@@ -1,19 +1,23 @@
-import NotFound from '@/pages/not-found';
 import { Suspense, lazy } from 'react';
-import { Navigate, Outlet, useRoutes } from 'react-router-dom';
+import { Outlet, useRoutes } from 'react-router-dom';
+import authRoutes from './modules/auth-routes';
+import errorRoutes from './modules/error-routes';
 
 const DashboardLayout = lazy(() => import('@/components/layout/dashboard-layout'));
-const SignInPage = lazy(() => import('@/pages/auth/signin'));
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
-const StudentPage = lazy(() => import('@/pages/students'));
-const StudentDetailPage = lazy(() => import('@/pages/students/StudentDetailPage'));
-const InfinityScrollPage = lazy(() => import('@/pages/infinity-scroll'));
-const SliderPage = lazy(() => import('@/pages/slider'));
-const CalendarPage = lazy(() => import('@/pages/calendar'));
-const ChattingPage = lazy(() => import('@/pages/chatting'));
-const StreamingPage = lazy(() => import('@/pages/streaming'));
-const GalleryPage = lazy(() => import('@/pages/file-upload/gallery'));
-const BigFileUploadPage = lazy(() => import('@/pages/file-upload/big-file'));
+
+// 자동으로 라우트 가져오기
+const mainRoutes = import.meta.glob('./main/*.tsx', { eager: true });
+const subRoutes = import.meta.glob('./sub/*.tsx', { eager: true });
+
+// mainRoutes와 subRoutes를 처리하여 children에 추가
+const processedMainRoutes = Object.values(mainRoutes).map((module: any) => {
+  return module.default;
+});
+
+const processedSubRoutes = Object.values(subRoutes).map((module: any) => {
+  return module.default;
+});
 
 export default function AppRouter() {
   const dashboardRoutes = [
@@ -31,65 +35,15 @@ export default function AppRouter() {
           element: <DashboardPage />,
           index: true
         },
-        {
-          path: 'student',
-          element: <StudentPage />
-        },
-        {
-          path: 'student/details',
-          element: <StudentDetailPage />
-        },
-        {
-          path: 'infinity-scroll',
-          element: <InfinityScrollPage />
-        },
-        {
-          path: 'calendar',
-          element: <CalendarPage />
-        },
-        {
-          path: 'slider',
-          element: <SliderPage />
-        },
-        {
-          path: 'chatting',
-          element: <ChattingPage />
-        },
-        {
-          path: 'streaming',
-          element: <StreamingPage />
-        },
-         {
-          path: 'file-upload',
-          children: [
-            {
-              path: 'gallery',
-              element: <GalleryPage />
-            },
-            {
-              path: 'big-file',
-              element: <BigFileUploadPage />
-            },
-          ]
-        },
+        ...processedMainRoutes, // 자동 main 라우트
+        ...processedSubRoutes,  // 자동 sub 라우트
       ]
     }
   ];
 
   const publicRoutes = [
-    {
-      path: '/login',
-      element: <SignInPage />,
-      index: true
-    },
-    {
-      path: '/404',
-      element: <NotFound />
-    },
-    {
-      path: '*',
-      element: <Navigate to="/404" replace />
-    }
+    ...authRoutes,
+    ...errorRoutes,
   ];
 
   const routes = useRoutes([...dashboardRoutes, ...publicRoutes]);

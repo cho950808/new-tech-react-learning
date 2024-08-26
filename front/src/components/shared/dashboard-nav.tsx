@@ -11,7 +11,7 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
-import { usePathname } from '@/routes/hooks';
+import { usePathname } from '@/hooks';
 import { Link } from 'react-router-dom';
 
 interface DashboardNavProps {
