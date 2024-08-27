@@ -10,7 +10,6 @@ const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const mainRoutes = import.meta.glob('./main/*.tsx', { eager: true });
 const subRoutes = import.meta.glob('./sub/*.tsx', { eager: true });
 
-// mainRoutes와 subRoutes를 처리하여 children에 추가
 const processedMainRoutes = Object.values(mainRoutes).map((module: any) => {
   return module.default;
 });
