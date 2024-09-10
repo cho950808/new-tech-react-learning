@@ -55,6 +55,24 @@ export const navItems: NavItem[] = [
     ]
   },
   {
+    title: '스크롤',
+    href: '/scroll',
+    icon: 'SquareArrowDown',
+    label: '스크롤',
+    submenu: [
+      {
+        title: '무한 스크롤',
+        href: '/scroll/infinity-scroll',
+        label: '무한 스크롤'
+      },
+      {
+        title: '인터랙티브 스크롤',
+        href: '/scroll/interactive-scroll',
+        label: '인터랙티브 스크롤'
+      }
+    ]
+  },
+  {
     title: '채팅',
     href: '/chatting',
     icon: 'Chatting',
@@ -66,12 +84,7 @@ export const navItems: NavItem[] = [
     icon: 'Streaming',
     label: '스트리밍'
   },
-  {
-    title: '무한스크롤',
-    href: '/infinity-scroll',
-    icon: 'SquareArrowDown',
-    label: '무한스크롤'
-  },
+  
 ];
 
 export type Employee = {
