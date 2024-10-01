@@ -73,12 +73,6 @@ export const navItems: NavItem[] = [
     ]
   },
   {
-    title: '채팅',
-    href: '/chatting',
-    icon: 'Chatting',
-    label: '채팅'
-  },
-  {
     title: '스트리밍',
     href: '/streaming',
     icon: 'Streaming',
